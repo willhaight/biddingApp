@@ -1,6 +1,49 @@
 body {
   background-color: black;
   color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#commandCenter {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#bidAmount1, #bidAmount2 {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#bidCommit1, #bidCommit2 {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#log {
+  background-color: white;
+  width: 40%;
+  height: 15px;
+  margin-top: 40px;
 }
 
 /*# sourceMappingURL=styles.css.map */
