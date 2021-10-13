@@ -5,7 +5,13 @@ const bidpush1 = document.getElementById('bidCommit1');
 const bidpush2 = document.getElementById('bidCommit2');
 const log = document.getElementById('log');
 let leader = document.getElementById('winningBid');
-let winningBid = 0;
+let winningBid;
+if(localStorage.getItem("highNumber")){
+    winningBid = JSON.parse(localStorage.getItem("highNumber"));
+}else {
+    winningBid = 0;
+}
+
 
 
 //placing bids
@@ -15,9 +21,11 @@ bidpush1.onclick = function(){
     log.innerHTML += "bidder One Bids " + bidder1Value.value + "<br>";
     leader.innerHTML = "<h2>Bidder One Leads With A Bid Of " + winningBid + "$</h2>";
     setStorage();
-    setLogStorage()
+    setLogStorage();
+    updateHighNumber();
     bidder1Value.value = null;
     }else{
+        bidder1Value.value = null;
         alert("bid more than the bid leader to take the lead")
     }
 }
@@ -28,9 +36,11 @@ bidpush2.onclick = function(){
     log.innerHTML += "bidder Two Bids " + bidder2Value.value + "<br>";
     leader.innerHTML = "<h2>Bidder Two Leads With A Bid Of " + winningBid + "$</h2>";
     setStorage();
-    setLogStorage()
+    setLogStorage();
+    updateHighNumber();
     bidder2Value.value = null;
     }else{
+        bidder2Value.value = null;
         alert("bid more than the bid leader to take the lead")
     }
 }
@@ -56,3 +66,7 @@ function checkLogStorage(){
     }
 }
 checkLogStorage();
+//highNumber local storage
+function updateHighNumber(){
+    localStorage.setItem('highNumber', winningBid);
+}
