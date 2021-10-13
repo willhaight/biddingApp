@@ -41,8 +41,8 @@ main {
 
 #log {
   background-color: white;
+  color: black;
   width: 40%;
-  height: 15px;
   margin-top: 40px;
 }
 
