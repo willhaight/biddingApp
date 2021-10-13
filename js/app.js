@@ -15,6 +15,8 @@ bidpush1.onclick = function(){
     log.innerHTML += "bidder One Bids " + bidder1Value.value + "<br>";
     leader.innerHTML = "<h2>Bidder One Leads With A Bid Of " + winningBid + "$</h2>";
     setStorage();
+    setLogStorage()
+    bidder1Value.value = null;
     }else{
         alert("bid more than the bid leader to take the lead")
     }
@@ -26,6 +28,8 @@ bidpush2.onclick = function(){
     log.innerHTML += "bidder Two Bids " + bidder2Value.value + "<br>";
     leader.innerHTML = "<h2>Bidder Two Leads With A Bid Of " + winningBid + "$</h2>";
     setStorage();
+    setLogStorage()
+    bidder2Value.value = null;
     }else{
         alert("bid more than the bid leader to take the lead")
     }
@@ -41,3 +45,14 @@ if(localStorage.getItem('winningBid')){
     leader.innerHTML = localStorage.getItem('winningBid'); 
 }}
 checkStorage();
+
+//log storage
+function setLogStorage(){
+    localStorage.setItem('log', log.innerHTML)
+}
+function checkLogStorage(){
+    if(localStorage.getItem('log')){
+        log.innerHTML = localStorage.getItem('log');
+    }
+}
+checkLogStorage();
